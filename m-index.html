@@ -130,6 +130,7 @@
 		border-radius: 100%;
 		background: #fff;
 		opacity:1;
+
 	}
 	#reviewAbsoluteBox  .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
 		top: 96px;
@@ -142,6 +143,7 @@
 		background: #3da5bb !important;
 		width: 20px !important;
 		border-radius: 5px !important;
+		transition: all 0.3s 0s ease;
 	}
 	#mContent1 .swiper-pagination-bullet {
 		width: 8px;
@@ -384,7 +386,24 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
-	</style>
+/*coverflow*/
+#portfolioM{}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+.coverflow-wrap .swiper-container{
+width: 100%;
+}
+.coverflow .swiper-slide{
+	background-size: cover;
+	color: transparent;
+	width: 80%;
+	display: block;
+	min-height: 200px;
+}
+</style>
 </head>
 <body>
 	<div id="MainLayer">
@@ -512,8 +531,7 @@
 
 
 	<div id="mWrap" class="noto">
-
-<div class="overlay"></div>
+		<div class="overlay"></div>
 <div id="mHeader">
 	<div class="mHBox">
 		<div class="mHSBox">
@@ -523,9 +541,6 @@
 				<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
 			</button>
-
-
-
 			<div class="mLogo"><a href="http://www.ezenac.co.kr/m/"><img src="/m/images/common/m_main_logo.png" alt="ezen" /></a></div>
 			<div class="mHText" style="top:70%;">
 				<p>평일 개강 <span>05.30(수)</span></p>
@@ -569,19 +584,16 @@
 			<div id="mContent3">
 				<div id="portfolioM">
 					<div class="title"><img src="/m/images/main/m_portfolio_title.png" alt="portfolio" /><a href="/m/ezen/community/portfolio.asp"><span>┼&nbsp;&nbsp;전체보기</span></a></div>
-					<div class="portMArea cf">
-						<div class="portMLeftArrow">
-							<a href="#"><img src="/m/images/main/port_m_left_arrow.png" alt="이전" /></a>
-						</div>
-						<div class="portMBox">
-							<div class="portMImg  active"><a href="/m/ezen/community/portfolio_read.asp?sc=1&idx=52"><img src="/upload/community/portfolio/2016/2016122014424240266482832.png" alt="권재은 포트폴리오 작품" /></a><div class="portMeffect"></div></div>
-							<div class="portMImg "><a href="/m/ezen/community/portfolio_read.asp?sc=1&idx=1113"><img src="/upload/community/portfolio/2017/2017122117034903371041826.jpg" alt="윤지은 포트폴리오 작품" /></a><div class="portMeffect"></div></div>
-							<div class="portMImg "><a href="/m/ezen/community/portfolio_read.asp?sc=3&idx=1085"><img src="/upload/community/portfolio/2017/2017103016001041548204153.jpg" alt="박지원 포트폴리오 작품" /></a><div class="portMeffect"></div></div>
-							<div class="portMImg "><a href="/m/ezen/community/portfolio_read.asp?sc=2&idx=50"><img src="/upload/community/portfolio/2016/2016113012421044818018237.jpg" alt="박화경 포트폴리오 작품" /></a><div class="portMeffect"></div></div>
-							<div class="portMImg "><a href="/m/ezen/community/portfolio_read.asp?sc=2&idx=1076"><img src="/upload/community/portfolio/2017/2017061602594508124105638.png" alt="박정은 포트폴리오 작품" /></a><div class="portMeffect"></div></div>
-						</div>
-						<div class="portMRightArrow">
-							<a href="#"><img src="/m/images/main/port_m_right_arrow.png" alt="다음" /></a>
+					<div class="coverflow-wrap">
+						<!-- edit -->
+						<div class="coverflow swiper-container swiper-container5">
+							<div class="swiper-wrapper">
+								<a class="swiper-slide" href="/m/ezen/community/portfolio_read.asp?sc=1&idx=52" style="background-image:url(/upload/community/portfolio/2016/2016122014424240266482832.png)">권재은 포트폴리오 작품</a>
+								<a class="swiper-slide" href="/m/ezen/community/portfolio_read.asp?sc=1&idx=1113" style="background-image:url(/upload/community/portfolio/2017/2017122117034903371041826.jpg)">윤지은 포트폴리오 작품</a>
+								<a class="swiper-slide" href="/m/ezen/community/portfolio_read.asp?sc=3&idx=1085" style="background-image:url(/upload/community/portfolio/2017/2017103016001041548204153.jpg)">박지원 포트폴리오 작품</a>
+								<a class="swiper-slide" href="/m/ezen/community/portfolio_read.asp?sc=2&idx=50" style="background-image:url(/upload/community/portfolio/2016/2016113012421044818018237.jpg)">박화경 포트폴리오 작품</a>
+								<a class="swiper-slide" href="/m/ezen/community/portfolio_read.asp?sc=2&idx=1076" style="background-image:url(/upload/community/portfolio/2017/2017061602594508124105638.png)">박정은 포트폴리오 작품</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -969,7 +981,8 @@ wcs_do(_nasa);
 		var container6 = new Swiper('.swiper-container6',{
 			pagination: '.swiper-pagination6',
 		});	
-		
+
+		// main banner
 		var container1 = new Swiper('.swiper-container1',{
 			pagination: '.swiper-pagination1',
 			paginationClickable: true,
@@ -982,7 +995,43 @@ wcs_do(_nasa);
 			loop:true
 		});	
 
+		// portfolio
+		var swiper = new Swiper('.coverflow', {
+			effect: 'coverflow',
+			grabCursor: true,
+			centeredSlides: true,
+			slidesPerView: 'auto',
+			coverflowEffect: {
+				rotate: 50,
+				stretch: 0,
+				depth: 100,
+				modifier: 1,
+				slideShadows : true,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+			}
+		});
+
+
+		//메인 강사	
+		$('.mSContent5 .paging .total').text($('.mSContent5 .swiper-slide').length);
 		
+		var swiper = new Swiper('#mContent5 .swiper-container5',{
+			pagination: '.swiper-pagination5',
+			paginationClickable: false,
+			paginationBulletRender: function (index, className) {
+				return '<span class="' + className + '">' + (index + 1) + '</span>';
+			},
+			slidesPerView: 1,
+			autoplay: 4000,
+			autoplayDisableOnInteraction: false,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			loop:true
+		});	
+
+
 		//메인 레이어팝업
 		if($.cookie('MainLayerwww') != "N"){
 			layer.init();

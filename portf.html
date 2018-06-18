@@ -1,0 +1,72 @@
+<ul class="list-wrap"></ul>
+
+<style>
+
+.list-wrap li{
+    margin:  20px 0 30px 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);    
+}   
+.list-wrap p{
+    padding:  15px 10px;    
+}
+.list-wrap p span:last-child{
+    color: #00acc1;
+}
+
+</style>
+
+<script type="text/javascript">
+var GNB = 0,
+    pg = $("#fmRead input[name=pg]").val();
+    sc = $("#fmRead input[name=sc]").val();
+
+var tab = new Swiper('.tab', {
+    slidesPerView: 2,
+    spaceBetween: 0,
+    loop: true,
+    centeredSlides: true,
+    on: {
+        slideChange: function(){
+            var link = $(this.wrapperEl).find('.item');
+            //this.snapIndex
+            link.removeClass('on').eq(this.snapIndex).addClass('on');
+
+            var getSC = link.eq(this.snapIndex).find('a').attr('href').substr(1)
+
+            $(".list-wrap").empty();
+            getData({'pg': 1, 'sc': getSC});
+        }
+    }
+});
+
+
+$('button[type="submit"]').click(function(){
+    getData({'pg': pg, 'sc': sc});
+});
+
+
+function getData(params) {
+    // @ pg : paging
+    // @ sc : category
+    var requestContent = $.ajax({
+        type : "GET"
+        , async : false
+        , dataType : "html"
+        , cache : false
+        , data : params || {"pg" : 1, "sc" : 2}
+        , url : "http://www.ezenac.co.kr/m/ezen/community/portfolio_list.asp"
+    })
+    requestContent.done(function(result) {
+
+        $(".list-wrap").append(result);
+        if(pg < 1) {
+            pg = 2;
+        } else {
+            pg ++;
+        }
+
+        $("#fmRead input[name=pg]").val(pg);
+    });
+}
+
+</script>

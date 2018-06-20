@@ -458,6 +458,7 @@ nav{
 }
 
 
+
 // @@stit
 .tit--ss{
   position: relative;
@@ -1341,19 +1342,9 @@ COMPONENT
     border-top: 4px solid #e6715f;
     padding: 25px 28px 25px 28px;
   }
-  .title{
-    font-size: 24px;
-    text-align: center;
-    color: #e6715f;
-    font-weight: bold;
-    margin-bottom: 17px;
-    margin-left: 8px;
-    margin-top: 5px;
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  img{display: block;width: 100%;}
 
+  img{display: block;width: 100%;}
+.mSubcontent1{
   .box ul li {
     margin: 10px 0;
     &::before{
@@ -1370,6 +1361,15 @@ COMPONENT
     font-size: 14px;
     letter-spacing: -.5px;
   }
+  .title{
+    text-align: center;
+    color: #e6715f;
+    font-weight: bold;
+    margin-left: 8px;
+    margin-top: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
   p {
     overflow: hidden;
     margin: 5px 0;
@@ -1383,7 +1383,7 @@ COMPONENT
     text-align: center;
     font-size: 14px;
   }
-
+}
   .curriConetent {
     padding: 35px 30px 35px 30px;
     text-align: center;
@@ -1467,7 +1467,7 @@ COMPONENT
 }
 
 .curriculumBox{
-  margin: 0 13px 0 13px;
+  margin: 0 13px 35px 13px;
   text-align: center;
   .tit--curri-img01{
     display: block;
@@ -1477,7 +1477,7 @@ COMPONENT
     font-size: 12px;
   }
   .curri{
-    margin: 25px auto;
+    margin: 25px auto 0;
     width: 320px;
     overflow: hidden;
     @mixin cm($url){
@@ -1487,8 +1487,14 @@ COMPONENT
       background-image: url($url);
     }
     &.basic {@include cm('http://www.ezenac.co.kr/m/images/curri_img02.jpg');}
-    &.skillup {@include cm('http://www.ezenac.co.kr/m/images/curri_img03.jpg');}
-    &.portFolio {@include cm('http://www.ezenac.co.kr/m/images/curri_img04.jpg');}
+    &.skillup {
+      @include cm('http://www.ezenac.co.kr/m/images/curri_img03.jpg');
+      background-position: 0 53px;
+    }
+    &.portFolio {
+      @include cm('http://www.ezenac.co.kr/m/images/curri_img04.jpg');
+      background-position: 0 53px;
+    }
 
 
     dd span {
@@ -1530,11 +1536,59 @@ COMPONENT
       width: 169px;
       line-height: 14px;
     }
+    ul{
+      margin-top: 8px;
+      padding-left: 19px;
+    }
     li {
       text-align: left;
       font-weight: normal;
       color: #777777;
       font-size: 12px;
     }
+  }
+}
+.portFolioWrap{
+  background: #dbdbd9;
+  padding: 37px 13px 50px 13px;
+  text-align: center;
+  background-size: 20px 20px;
+  .tit--portfolio{
+    display: block;
+    margin: 0 auto 20px;
+  }
+  .pf_list {
+    > a{
+      display: block;
+      .thumb{position: relative;
+        display: block;}
+      .thumb::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border: 1px solid #000;
+        opacity: .1;
+      }
+    }
+    .cf{
+      font-size: 16px;
+      padding: 10px 0 20px;
+    }
+  }
+  .waves-effect{
+    &:active{
+      color: #fff;
+    }
+    width: 100%;
+    line-height: 32px;
+    @extend .grey, .darken-4
+  }
+
+  .fa{
+    position: relative;
+    top: 2px;
   }
 }

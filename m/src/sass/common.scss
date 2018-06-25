@@ -29,7 +29,11 @@ th, td{
 input[type="text"]{
   text-indent: 10px;
 }
-
+iframe{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 input,
 select{
   font-size: 14px;
@@ -509,7 +513,46 @@ nav{
 /*
 COMPONENT
  */
+.frame__wrap{
+  position: relative;
+  font-size: 24px;
+  text-align: center;
+  iframe{
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
 
+  &::before{
+    content: '\f021';
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    position: absolute;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    left: 50%;
+    top: 50%;
+    margin: -20px 0 0 -20px;
+    animation: pulse 2s infinite ease;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
 .item__list--title{
   margin: 0 13px;
   border-top: 1px solid #eee;
@@ -2076,7 +2119,7 @@ COMPONENT
     }
   }
   .lozad{
-    max-width: 320px;
+    max-width: 100%;
     display: block;
     margin: 10px auto;
   }
@@ -2085,6 +2128,29 @@ COMPONENT
 .teacher--slide{
   padding: 28px 13px;
   background: url('http://ezenac.co.kr/m/images/sub/teacher/teachercon_bg2.png');
+  &.movie{
+    background-image: none;
+    background-color: #eee;
+    .ss-tit{
+      font-size: 20px;
+      margin: 20px 0 10px 0;
+      font-weight: normal;
+      span{
+        border-bottom: 1px solid #000;
+      }
+    }
+    .tit + .help + .parag{
+      margin-bottom: 30px;
+    }
+    .frame__wrap + .help{
+      margin-bottom: 30px;
+    }
+    .frame__wrap + .help + .parag{
+      margin-top: -30px;
+      margin-bottom: 30px;
+    }
+  }
+  
   .help{
     color: #000;
     padding: 15px 0;
@@ -2105,7 +2171,11 @@ COMPONENT
   .diagram{
     text-align: center;
     margin-top: 20px;
-    img{max-width: 320px;}
+    img{max-width: 100%;}
+    &.step{
+      img{
+        max-width: 100%;}
+    }
   }
 
   .review{

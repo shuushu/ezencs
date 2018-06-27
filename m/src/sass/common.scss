@@ -34,6 +34,10 @@ iframe{
   padding: 0;
   border: 0;
 }
+[type="checkbox"]+span:not(.lever){
+  padding-left: 24px;
+  line-height: 22px;
+}
 input,
 select{
   font-size: 14px;
@@ -124,6 +128,13 @@ nav{
 // 활성화
 .cross{
   position: relative;
+  // 플로팅버튼 감춤
+  .float__menu--wrap.down,
+  .float__menu--wrap{
+    transition: all .2s 0s ease;
+    opacity: 0;
+  }
+
   #wrapping{
     overflow: hidden;
     height: 100%;
@@ -1453,6 +1464,7 @@ COMPONENT
   p {
     overflow: hidden;
     margin: 5px 0;
+    clear:both;
   }
   p > span {
     float: left;
@@ -1775,6 +1787,22 @@ COMPONENT
 .online-inquiry{
   padding: 0 13px;
   text-align: center;
+  // 개방취
+  .terms--txtContent{
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 30px;
+  }
+  .agree{
+    display: block;
+    text-align: left;
+    span{
+      height: 30px;
+      color: #666;
+      font-size: 13px;
+    }
+  }
   .tit--counsel-title{
     margin: 20px 0 10px 0;
   }

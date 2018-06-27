@@ -4,6 +4,8 @@
 
 .slider__hor{
   img{
+    margin: 0 auto;
+    max-width: 450px;
     width: 100%;
     display: block;
   }
@@ -72,8 +74,11 @@
 
 .teacher__slide{
   position: relative;
+  background-color: #f0f0f0;
   .swiper-slide img{
     display: block;
+    margin: 0 auto;
+    max-width: 450px;
     width: 100%
   }
   .swiper-button-prev{
@@ -151,6 +156,8 @@
   img{
     display: block;
     width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
   }
   .list{
     text-align: center;

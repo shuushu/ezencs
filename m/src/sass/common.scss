@@ -2249,3 +2249,100 @@ COMPONENT
     }
   }
 }
+
+.img--wrap{
+  font-size: 0;
+  text-align: center;
+  margin: 0 13px;
+  img{
+    max-width: 540px;
+    width: 100%;
+  }
+}
+
+
+
+.bbs-container{
+  
+}
+
+.license{
+  .certInfoSBox{
+    padding: 30px 0;
+  }
+  .certInfoSBox:nth-child(even){
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  .rightTextBox{
+    margin: 0 13px;
+    > strong:first-child{
+        display: block;
+        font-size: 22px;
+        color: #333;
+        font-weight: 500;
+        padding: 20px 0 10px 0;
+        & + p{
+          font-size: 13px;
+          color: #999;
+        }
+    }
+
+    .detailBox{
+      dt{
+        position: relative;
+        display: inline-block;
+        border-top: 2px solid #000;
+        font-size: 16px;
+        padding-top: 7px;
+        margin: 30px 0 0 0;
+      }
+      dd{
+        color: #666;
+        overflow: hidden;
+        margin:  10px 0;
+      }
+      dd p{
+        position: relative;
+        margin:  5px 0;
+        strong{
+          color: red;
+        }
+        &::before{
+          content:'';
+          display: block;
+          width: 3px;
+          height: 3px;
+          display: inline-block;
+          background-color: #666;
+          border-radius: 100%;
+          vertical-align: middle;
+          position: relative;
+          top: -1px;
+        }
+      }
+
+    }
+.linkBtn{
+  font-size: 0;
+  a{
+   width: 32%; 
+   padding: 0;
+   font-size: 13px;
+   line-height: 38px;
+   box-sizing: border-box;
+   &:nth-child(2){
+    margin:  0 2%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+   }
+   &:nth-child(2), &:nth-child(3){
+    background-color: #000
+   }
+  }
+}
+
+
+  }
+}
+// @@공지사항
+

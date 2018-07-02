@@ -2345,4 +2345,194 @@ COMPONENT
   }
 }
 // @@공지사항
+body{
+  font-family: arial;
+}
+// @@CIBI
+.ci-container{
+  margin:  0 13px;
+  text-align: center;
+  .adv-txt{
+    color: $c2;
+    font-size: 20px;
+    margin:  50px 0;
+  }
+  .cm--tit--parag {
+    font-size: 11px;
+    color: #999;
+  }
 
+  .parag{
+    margin:  20px 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    .adv{
+      display: block;
+      color: #000;
+    }
+    .c2{
+      color: $c2;
+    }
+  }
+  .bg{
+    margin: 30px 0;
+    padding: 30px 0 20px 0;
+    background: url('http://ezenac.co.kr/m/images/sub/ci_section_bg.png') repeat;
+    min-width: 320px;
+    text-align: center;
+  }
+  .item{
+    margin: 20px 0;
+    li{
+      position: relative;
+      text-align: left;
+      font-size: 12px;
+      width: 130px;
+      margin: 0 auto;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 2px;
+        border-radius: 100%;
+        background-color: #666;
+        vertical-align: middle;
+        margin-right: 5px;
+        margin-top: -2px;
+      }
+    }
+  }
+  .bi{
+    margin-top: 50px;
+    border-top: 1px dashed #ccc;
+    padding: 20px 0;
+    text-align: left;
+    .img-wrap{
+      border: 1px solid #ddd;
+      &.none{
+        border: 0;
+      }
+      background-color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin:  10px 0;
+      img{
+      }
+    }
+
+    h4{
+      font-size: 18px;
+      margin: 30px 0 10px;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 16px;
+        background-color: $c2;
+        vertical-align: top;
+        margin-right: 8px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+// @@teacher main
+.teacher-main{
+
+  .teacher-carousel{
+    position: relative;
+    img{
+      display: block;
+      width: 100%;
+    }
+  }
+  .prev,
+  .next{
+    position: absolute;
+    top: 105px;
+    z-index: 50;
+    img{
+      display: block;
+      width: 17px;
+      height: 17px;
+    }
+  }
+  .prev{
+    left: 47%;
+  }
+  .next{
+    right: 4%;
+  }
+}
+#teacherInfoContent2 {
+  background: url('http://ezenac.co.kr/m/images/teacher2_bg.png') no-repeat center top;
+  background-size: cover;
+  .teacherInfoSContent2 {
+    padding: 20px 13px 30px 13px;
+    h2 {
+      color: #45b1c4;
+      font-size: 22px;
+      line-height: 23px;
+      span {
+        color: #fff;
+        font-size: 11px;
+        padding-left: 10px;
+        font-weight: normal;
+        vertical-align: middle;
+      }
+    }
+  }
+  .list{
+    li {
+      margin: 10px 0;
+      position: relative;
+      img{
+        display: block;
+        height: 100px;
+      }
+      background-color: #fff;
+    }
+
+    .txtWrap {
+      line-height: 1.5;
+      position: absolute;
+      top: 15px;
+      left: 130px;
+      > strong{
+        font-size: 15px;
+        line-height: 1.2;
+      }
+      > p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.2;
+        margin:  5px 0 3px 0;
+      }
+      > span{
+        font-size: 11px;
+        em{
+          color: #999;
+          font-style: normal;
+          &::after{
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 8px;
+            background-color: #ccc;
+            margin-right: 5px;
+            vertical-align: middle;
+            margin-left: 5px;
+            position: relative;
+            top: -1px;
+          }
+        }
+      }
+    }
+
+  }
+
+
+
+}

@@ -1,8 +1,19 @@
 var GNB;
+// lazyloading
+var observer = lozad('.lozad', {
+    loaded: function(el) {
+        el.classList.add('lozad-fade');
+    }
+});
+
+
+
 $(document).ready(function () {
+    observer.observe();
 // Layout
     $('.menu-button').click(function(e){
         e.preventDefault();
+
         $('body').toggleClass('cross');
 
         var isClass = $('body').hasClass('cross'),
@@ -54,27 +65,16 @@ $(document).ready(function () {
         $('#'+ getID).show();
     });
 
-    // sidemenu 영역밖 클릭시
-   var menu = document.getElementById('side-menu');
-
-   menu.addEventListener('touchstart', function(e){
-       console.log(e)
-   });
-
-    // lazyloading
-    var observer = lozad('.lozad', {
-        loaded: function(el) {
-            el.classList.add('lozad-fade');
-        }
-    });
-    observer.observe();
 
     // scroll
     var getHeader = $('#re-header').height(),
         lastScrollTop = 0;
 
     $(window).scroll(function(e){
-        var p = $(window).scrollTop();
+        var isClass = $('body').hasClass('cross'),
+            p = $(window).scrollTop();
+
+        if(isClass) return true;
 
         $('#re-header').removeAttr('class');
         $('.float__menu--wrap').removeClass('down up');

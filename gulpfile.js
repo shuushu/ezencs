@@ -33,19 +33,9 @@ var pkg = require('./package.json'),
     cleanCSS = require('gulp-clean-css'),
     inquirer = require('inquirer');
 
-gulp.task('concat', function() {
-    gulp.src([
-        './ftp/common/js/site/common.js',
-        './ftp/common/js/site/site.js',
-        './ftp/common/js/site/site.js',
-    ])
-        .pipe(concat('ui.js'))
-        .pipe(gulp.dest('./ftp/common/js/site/'))
-});
 
 
-
-
+// 리뉴얼 frontJS
 gulp.task('compress-pc-js', function() {
     console.log('~~~ js run');
     gulp.src('./ftp/common/js/site/ui.js')
@@ -66,45 +56,8 @@ gulp.task('compress-pc-js', function() {
 });
 
 
-gulp.task('m-sass', function () {
-    gulp.src('./m/common/sass/*.scss')
-        .pipe(plumber({ errorHandler: function(e) {
-            console.error(e.message);
-            this.emit('end');
-        }}))
-        .pipe(sourcemaps.init())
-        .pipe(sass({
-            sourceComments: false,
-            outputStyle: 'compressed'
-        }).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 4 versions'],
-            cascade: true
-        }))
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./m/common/sass/css/'));
-
-    gulp.watch([
-        './m/common/sass/*.scss',
-        './m/common/sass/**/*.scss'
-    ], ['m-sass']);
-});
-
-
-
-gulp.task('compress-m-css', function() {
-    console.log('~~~ compress-m-css');
-    gulp.src('./m/common/css/mobile.css')
-        .pipe(cleanCSS())
-        .pipe(gulp.dest('./m/common/css/min.css/'));
-
-
-    gulp.watch([
-        './m/common/css/mobile.css'
-    ], ['compress-m-css']);
-});
-
-
+// 리뉴얼 SASS
+// choice 항목  스프라이트할 이미지 폴더 네이밍
 gulp.task('choiceSprites', function () {
     inquirer.prompt([
         {

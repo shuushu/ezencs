@@ -8,9 +8,9 @@ ezen renewal 작업 가이드
 ## 폴더구조
 
 A. 모바일 폴더
-- A-1 / dist: 배포폴더 - 로컬 개발 확인 
-- A-2 / images: 작업 이미지
-- A-3 / src: 작업폴더
+- dist: 배포폴더 - 로컬 개발 확인 
+- images: 작업 이미지
+- src: 작업폴더
    - inc
    - js: 프론트 js
    - sass
@@ -50,7 +50,7 @@ C. 환경폴더
 
 ## task
 - compress-pc-js
-> 피씨 ui.js 압축 난독화 테스크
+> pc ui.js 압축 난독화 테스크
 
 - choiceSprites
 > 이미지 스프라이트,  기존 폴더구조에 맞춰서 환경을 설정해야 되는 부분이 있어 레거시소스와 충돌이 안나게 별도 폴더를 나누어 관리

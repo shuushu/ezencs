@@ -68,20 +68,23 @@ $(document).ready(function () {
 
     // scroll
     var getHeader = $('#re-header').height(),
+        scVal = 0,
         lastScrollTop = 0;
 
     $(window).scroll(function(e){
-        var isClass = $('body').hasClass('cross'),
-            p = $(window).scrollTop();
+        var p = $(window).scrollTop();
 
-        if(isClass) return true;
-
-        $('#re-header').removeAttr('class');
         $('.float__menu--wrap').removeClass('down up');
         if (p > lastScrollTop){
+            scVal = 0;
             $('#re-header, .float__menu--wrap').addClass('up');
         } else {
-            $('#re-header, .float__menu--wrap').addClass('down');
+            // 이동거리 값이 30이상일때 헤더 보임
+            scVal++;
+            if(scVal > 30) {
+                $('#re-header').removeAttr('class');
+                $('#re-header, .float__menu--wrap').addClass('down');
+            }
         }
         lastScrollTop = p;
 

@@ -1215,13 +1215,69 @@ COMPONENT
     padding: 10px;
     line-height: 1.4;
   }
+  .ss-tit + .box.count{
+    margin-top: 0;
+  }
+  .box.count{
+    margin: 30px 0 0 0;
+    padding: 0;
+    dt{
+      position: relative;
+      font-size: 16px;
+      padding-left: 40px;
+      font-weight: bold;
+      margin: 0;
+      height: 40px;
+      line-height: 40px;
+      &::before{
+        content:'';
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 2px solid #000;
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        text-align: center;
+        line-height:28px;
+        font-size: 18px;
+        display: block;
+      }
+    }
+    $cnt: 9;
+
+    @for $i from 1 through $cnt{
+      //&.on:nth-child(#{$i}){
 
 
+      .n#{$i}::before{content:'0#{$i}';}
+    }
 
-
-
-
-
+    dd{
+      position: relative;
+      padding-left: 10px;
+      margin: 10px 10px 10px 20px;
+      color: #666;
+      &::before{
+        content: '-';
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      &:last-child{
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .count.gray + .noti{
+    text-align: right;
+    margin: 10px 0;
+    font-size: 12px;
+  }
+  .cc-map{
+    background: url('//ezenac.co.kr/m/images/curriculum/employed/unemployed_support_step6.png') no-repeat center center;
+    background-size: cover;
+  }
 }
 // @@ MEBNU04
 .pp-wrap{

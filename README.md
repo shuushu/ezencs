@@ -62,4 +62,19 @@ C. 환경폴더
 > src폴더 작업폴더이고 배포는 dist에 이루어진다.
 
 
+## format
+> mobile: src/html 
+```
+<div id="wrapping">
+    @@include("./inc/aside.html")
+    <div id="wrap">
+        @@include("./inc/header.html")
+        <div id="re-container">
+        내용
+        </div>
+        @@include("./inc/footer.html")
+    </div>
+    @@include("./inc/float.html")
+</div>
+```
 

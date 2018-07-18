@@ -23,8 +23,33 @@ html, body {
   position: relative;
   height: 100%;
 }
+table{
+  table-layout: fixed;
+}
 ::placeholder{
   font-size: 13px;
+}
+[type="radio"]:not(:checked)+span,
+[type="radio"]:checked+span {
+  padding-left: 23px;
+  font-size: 12px;
+  line-height: 1.4;
+  height: 19px;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border: 1px solid #26a69a;
+}
+[type="radio"]+span:before, [type="radio"]+span:after {
+  width: 12px;
+  height: 12px;
+}
+[type="radio"]:not(:checked)+span:before,
+[type="radio"]:not(:checked)+span:after {
+  border: 1px solid #3da5bb;
+}
+.help{
+  color: #666;
+  font-size: 11px;
 }
 
 th, td{
@@ -82,6 +107,9 @@ nav{
 }
 // Header > sidemenu button
 .menu-button {
+  display: block;
+  background: none;
+  border: 0;
   position: absolute;
   top: 12px;
   left: 0;
@@ -136,6 +164,12 @@ nav{
 // 활성화
 .cross{
   position: relative;
+  overflow: hidden;
+  #side-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
   // 플로팅버튼 감춤
   .float__menu--wrap.down,
   .float__menu--wrap{
@@ -145,7 +179,6 @@ nav{
 
   #wrapping{
     overflow: hidden;
-    height: 100%;
   }
   .float__menu--wrap{
     opacity: 0;
@@ -265,6 +298,18 @@ nav{
   }
   > a{
     display: block;
+  }
+  .close{
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
   .join{@include ir2($l-menu-img6)}
   .camp{@include ir2($l-menu-img4)}
@@ -532,8 +577,21 @@ nav{
 .tit--cbi{
   @include ir2($history-title);
 }
-
-
+// 개취방
+.tit--term{
+  @include ir2($tit-term);
+}
+// 직장인 수정신청
+.tit--salaryman{
+  @include ir2($tit-salaryman)
+}
+// 교습비
+.tit--fee{
+  @include ir2($tit-fee)
+}
+.tit--unemployed_title_new{
+  @include ir2($unemployed-title-new)
+}
 // @@stit
 .tit--ss{
   position: relative;
@@ -564,17 +622,16 @@ nav{
 COMPONENT
  */
 .agree{
-  margin: 0 13px;
+  text-align: left;
   display: block;
-  input{
-  }
+  margin: 0 13px;
+  input{}
+
   [type="checkbox"]+span:not(.lever):before,
   [type="checkbox"]:not(.filled-in)+span:not(.lever):after{
-    margin-top: 4px;
+    //margin-top: 4px;
   }
-  [type="checkbox"]+span:not(.lever){
-    padding-left: 30px;
-  }
+
   span{
     font-size: 13px;
     height: 30px;
@@ -752,6 +809,58 @@ COMPONENT
   &.n3{
     .item{width: 33%;}
     .item:nth-child(2){width: 34%;}
+  }
+}
+// tab
+.tab--s2{
+  $v: 20px;
+  font-size: 0;
+  overflow: hidden;
+  button{
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    height: 64px;
+    background-color: #ccc;
+    font-size: 14px;
+    font-weight: 600;
+    &:first-child{
+      border-top-left-radius: $v;
+      border-bottom-left-radius: $v;
+    }
+    &:last-child{
+      border-top-right-radius: $v;
+      border-bottom-right-radius: $v;
+    }
+    &.on{
+      span{
+        position: relative;
+        z-index: 3;
+        color: #fff;
+      }
+      &::before{
+        transition: all 0.4s 0s ease;
+        width: 100%;
+      }
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 100%;
+      left: 0;
+      display: block;
+      background-color: $c1;
+      top: 0;
+      z-index: -1;
+    }
+  }
+  &.n2 button{width:50%}
+  &.n3{
+    button{width:33%}
+    button:nth-child(2){
+      width: 34%;
+    }
   }
 }
 // 테이블스타일
@@ -1043,109 +1152,127 @@ COMPONENT
   }
 }
 // @@ MENU03
-.support{
-  .select__underline{
+.support {
+   .caution{
+     font-size: 12px;
+     color: $c3;
+     padding-left: 20px;
+     margin: 10px 13px;
+     background: url('//ezenac.co.kr/m/images/p_em_bg.png') no-repeat 0 center;
+   }
+   .search--form{
+    .ss-tit{
+      margin-left: 13px;
+    }
+  }
+
+  .select__underline {
     font-size: 16px;
   }
-  .tit--parag{
+  .tit--parag {
     margin: 10px 0 30px 0;
   }
-  .tab--s1{
-    margin:10px 13px 30px 13px;
+  .tab--s1 {
+    margin: 10px 13px 30px 13px;
     overflow: hidden;
   }
-  .cnt{
+  .tab-cnt {
     margin: 0 13px;
     display: none;
-    > h4{
+    > h4 {
       text-align: center;
+      font-size: 17px;
     }
   }
-  .box.bg1 + .btn-wrap{
+  .box.bg1 + .btn-wrap {
     text-align: center;
     margin: 20px 0 30px 0;
-    .waves-black{
+    .waves-black {
       background-color: #4c4c4c;
-      &:active{color: #fff;}
+      &:active {
+        color: #fff;
+      }
     }
-    .waves-cyan{
+    .waves-cyan {
       background-color: $c1;
-      &:active{color: #fff;}
+      &:active {
+        color: #fff;
+      }
     }
   }
-  #cont1{
+  #cont1 {
     display: block;
   }
-  #cont2{
-    .parag + .parag{
+  #cont2 {
+    .parag + .parag {
       margin: 20px 0;
     }
-    .space{
+    .space {
       padding-bottom: 30px;
     }
-    .lozad + .parag{
+    .lozad + .parag {
       margin: 15px 0 20px 0;
     }
-    .down{
+    .down {
       width: 72px;
       height: 15px;
       display: inline-block;
       vertical-align: middle;
     }
   }
-  #cont3{
-    .parag + .parag{
+  #cont3 {
+    .parag + .parag {
       margin: 10px 0;
     }
-    .m-color{
+    .m-color {
       font-size: 14px;
       color: $c1;
       position: relative;
       padding: 20px 0 10px 0;
 
     }
-    .btn--link + .parag{
+    .btn--link + .parag {
       margin: 50px 0 20px 0;
       color: #000;
     }
-    img{
+    img {
       display: block;
       width: 100%;
     }
-    .txt--cyan + .parag{
+    .txt--cyan + .parag {
       text-align: left;
       line-height: 1.5;
     }
-    .box.bg2{
-      .parag:last-child{
+    .box.bg2 {
+      .parag:last-child {
         text-align: left;
         line-height: 1.5;
       }
     }
-    .btn + .box{
+    .btn + .box {
       margin-top: 30px;
     }
   }
-  .img__link{
+  .img__link {
     margin-bottom: 20px;
   }
   // 본문내용
-  .box{
+  .box {
     background-color: #f1f1f1;
     margin: 0 -13px;
     padding: 0 13px;
     overflow: hidden;
-    &.bg1{
+    &.bg1 {
       background: url('http://www.ezenac.co.kr/m/images/unempSupport3Bg.jpg');
       padding-bottom: 30px;
       overflow: hidden;
     }
-    &.bg2{
+    &.bg2 {
       background: url('http://www.ezenac.co.kr/m/images/unempSupport2Bg.jpg');
       padding-bottom: 30px;
       overflow: hidden;
       text-align: center;
-      strong{
+      strong {
         display: block;
         color: $c2;
         text-align: center;
@@ -1154,74 +1281,101 @@ COMPONENT
     }
 
     // step
-    &.step{
+    &.step {
       padding-bottom: 20px;
     }
 
-    img{
+    img {
       width: 100%;
       display: block;
     }
   }
+  .radio{
+    label{ display: block;}
+    [type="radio"]+span{
+      padding-left: 20px;
+    }
+    [type="radio"]+span:before, [type="radio"]+span:after {
+      margin-top: 7px;
+    }
+  }
 
+  .table__linear {
+    input[type="text"], input[type="tel"]{
+      width: 95%;
+    }
+  }
 
-  .table__left{
+  .table__left {
     overflow: auto;
-    table{
+    table {
       min-width: 500px;
     }
-    th{
+    th {
       width: 90px;
     }
   }
-  .ss-tit{
-    text-align: center;
+  .ss-tit {
     margin: 30px 0 20px 0;
-    > span{
+    > span {
       position: relative;
       display: inline-block;
-      padding-top: 3px;
-      font-size: 15px;
+      padding-left: 10px;
+      font-size: 16px;
+      font-weight: bold;
       color: #000;
-      &::before{
+      &::before {
         content: '';
         display: block;
-        width: 80%;
-        height: 1px;
+        width: 3px;
+        height: 70%;
         background-color: #000;
-        left: 10%;
-        top: -4px;
+        left: 0;
+        top: 13%;
         position: absolute;
       }
     }
+    .sub {
+      color: #999;
+      margin-left: 5px;
+      font-size: 14px;
+      vertical-align: bottom;
+    }
   }
-  img + .parag{
-    margin: 15px 0 20px 0;
+  img + .parag {
+    font-size: 12px;
+    margin: 20px 0;
+    font-weight: bold;
   }
 
-  .parag{
+  .parag {
     text-align: center;
-    font-size: 13px;
-    color: #999;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
   }
-  .parag + .box{
+  .parag + .box {
     margin-top: 30px;
   }
-  
-  .txt--red{color: #fd4427;}
-  .txt--cyan{color: $c2;}
 
-  .wrap{
+  .txt--red {
+    color: #fd4427;
+  }
+  .txt--cyan {
+    color: $c2;
+  }
+
+  .wrap {
     padding: 10px;
     line-height: 1.4;
   }
-  .ss-tit + .box.count{
+  .ss-tit + .box.count {
     margin-top: 0;
   }
-  .box.count{
+  .box.count {
     margin: 30px 0 0 0;
     padding: 0;
-    dt{
+    dt {
       position: relative;
       font-size: 16px;
       padding-left: 40px;
@@ -1229,8 +1383,8 @@ COMPONENT
       margin: 0;
       height: 40px;
       line-height: 40px;
-      &::before{
-        content:'';
+      &::before {
+        content: '';
         position: absolute;
         left: 0;
         top: 0;
@@ -1239,46 +1393,376 @@ COMPONENT
         height: 30px;
         box-sizing: border-box;
         text-align: center;
-        line-height:28px;
+        line-height: 28px;
         font-size: 18px;
         display: block;
       }
     }
     $cnt: 9;
 
-    @for $i from 1 through $cnt{
+    @for $i from 1 through $cnt {
       //&.on:nth-child(#{$i}){
 
-
-      .n#{$i}::before{content:'0#{$i}';}
+      .n#{$i}::before {
+        content: '0#{$i}';
+      }
     }
 
-    dd{
+    dd {
       position: relative;
       padding-left: 10px;
       margin: 10px 10px 10px 20px;
       color: #666;
-      &::before{
+      &::before {
         content: '-';
         position: absolute;
         left: 0;
         top: 0;
       }
-      &:last-child{
+      &:last-child {
         margin-bottom: 30px;
       }
+      &.imp {
+        background-color: #666;
+        color: #fff;
+        font-size: 15px;
+        padding: 5px 10px;
+        display: inline-block;
+        margin: 10px 0 0 20px;
+      }
+      &.imp::before {
+        display: none;
+      }
     }
+
   }
-  .count.gray + .noti{
+  .count.gray + .noti {
     text-align: right;
     margin: 10px 0;
     font-size: 12px;
   }
-  .cc-map{
-    background: url('//ezenac.co.kr/m/images/curriculum/employed/unemployed_support_step6.png') no-repeat center center;
+  .cc-map {
+    position: relative;
+    background: url("//ezenac.co.kr/m/images/curriculum/employed/unemployed_support_step_back.jpg");
+    overflow: hidden;
+    margin-top: 30px;
+    .img {
+      position: relative;
+      font-size: 0;
+      padding: 10px 0 30px;
+      display: block;
+      img {
+        Width: 100%;
+      }
+    }
+    .ss-tit {
+      margin-bottom: 10px;
+      span {
+        color: #fff
+      }
+      span::before {
+        background-color: #fff;
+      }
+    }
+
+    ol {
+      position: absolute;
+      left: -999em;
+    }
+  }
+  .tab-cnt {
+    display: none;
+  }
+  .gray2 {
+    background-color: #e2e2e2;
+    .step-cell3 {
+      margin: 20px 0 30px -5px;
+    }
+  }
+  .step {
+    background-color: #e2e2e2;
+    margin: 0 -13px;
+    padding: 0 13px;
+    overflow: hidden;
+    dl {
+      margin-bottom: 20px;
+      border-radius: 15px 15px 0 0;
+      border: 1px solid #bebebe;
+      background-color: #fff;
+    }
+    dt {
+      font-size: 16px;
+      border-radius: 10px;
+      padding: 10px 0;
+      text-align: center;
+      color: #fff;
+      margin: -1px -1px 0 -1px;
+    }
+    dd {
+      margin: 15px 10%;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e1e1e1;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.65;
+      text-align: center;
+      word-break: keep-all;
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+    .cyan {
+      border: 1px solid #139aba;
+      background-color: #139aba;
+    }
+    .blue2 {
+      border: 1px solid #004889;
+      background-color: #004889;
+    }
+    .black2 {
+      border: 1px solid #000;
+      background-color: #333;
+    }
+  }
+  .text-box {
+    h5 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+      padding-left: 10px;
+    }
+    li {
+      margin-left: 20px;
+      font-size: 14px;
+      color: #666666;
+      word-break: keep-all;
+      word-wrap: break-word;
+      line-height: 1.66;
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 10px;
+      &::before {
+        content: '-';
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+    .noti {
+      padding-left: 10px;
+      font-size: 11px;
+      color: #666;
+      margin-left: 20px;
+    }
+    &:last-child {
+      margin-bottom: 40px;
+    }
+  }
+
+  .tab--s2 {
+    margin: 30px 13px;
+  }
+  .page-tab {
+    margin: 0 -13px;
+    height: 60px;
+    overflow: visible;
+    .item {
+      overflow: visible;
+      height: 60px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #aaa;
+      &.on {
+        color: $c3
+      }
+    }
+    .item::after {
+      height: 5px;
+      background-color: $c3;
+    }
+  }
+  .search--form .btn-wrap {
+    margin: 20px 13px;
+    a {
+      width: 100%;
+    }
+    a:hover, a:active {
+      color: #fff;
+    }
+  }
+  .btn-ez-wrap {
+    text-align: center;
+  }
+  .btn-ez {
+    position: relative;
+    display: inline-block;
+    margin: 30px auto;
+    color: #139aba;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 70%, rgb(245, 245, 245) 70%);
+    background: -webkit-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 70%, rgb(245, 245, 245) 70%);
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 70%, rgb(245, 245, 245) 70%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=0);
+    padding: 7px 28px 7px 14px;
+    letter-spacing: -1px;
+    &::after {
+      position: absolute;
+      @include arrow('right', 6, #139aba);
+      font-size: 11px;
+      right: 12px;
+      top: 9px;
+    }
+  }
+  .blet {
+    margin: 10px 0;
+    .txt--cyan::before {
+      background-color: $c2;
+    }
+    strong::before {
+      content: '';
+      vertical-align: middle;
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: #000;
+      margin-right: 5px;
+    }
+    .item {
+      display: block;
+      font-weight: normal;
+      margin: 10px 0;
+      padding-left: 10px;
+      position: relative;
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
+    }
+  }
+  .ani {
+    background: url('//ezenac.co.kr/m/images/curriculum/employed/empsupport_tab_content_deco01.jpg') right bottom no-repeat;
+    height: 140px;
+    background-size: auto 113px;
+  }
+  .black-side {
+    background: url('//ezenac.co.kr/m/images/curriculum/employed/employed_conter_back.jpg') repeat-x center center;
     background-size: cover;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    .noti {
+      font-size: 11px;
+      margin: 15px 0;
+      color: #666;
+    }
+    & + .cc-map {
+      margin-top: 0;
+    }
+    .btn-download {
+      position: relative;
+      display: inline-block;
+      background-image: url('//ezenac.co.kr/m/images/curriculum/employed/employed_btn_download_back.png');
+      background-size: 100% 100%;
+      color: #fff;
+      font-size: 14.5px;
+      padding: 15px 44px 15px 20px;
+      margin: 20px 0;
+      text-align: center;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      &::after {
+        content: '';
+        @include arrow('right', 6, white);
+        position: absolute;
+        top: 15px;
+        right: 21px;
+      }
+    }
+  }
+  .ss-tit + .parag2 {
+    margin-top: -10px;
+  }
+  .parag2 {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    & + .noti {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+  .center-inner {
+    padding: 0 30px;
+    max-width: 640px;
+    margin: 30px auto;
+    text-align: center;
+    box-sizing: border-box;
+    a:link {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 14.5px;
+      color: #fff;
+      text-align: center;
+      margin: 0 3px 3px 3px;
+      letter-spacing: -1px;
+    }
+    .btn-employed {
+      background: linear-gradient(to bottom, rgb(19, 154, 186) 1%, rgb(17, 140, 170) 100%);
+      padding: 9px 33px 10px 13px;
+      border-radius: 25px;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16), inset 0px -2px 2px rgba(0, 0, 0, 0.4);
+      color: #fff;
+      position: relative;
+    }
+    .btn-employed:after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url('//ezenac.co.kr/m/images/curriculum/employed/btn_arrow_black.png');
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -8px;
+    }
+    .btn-online {
+      background: linear-gradient(to bottom, rgb(91, 91, 91) 0%, rgb(50, 50, 50) 100%);
+      padding: 9px 33px 10px 13px;
+      border-radius: 25px;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16), inset 0px -2px 2px rgba(0, 0, 0, 0.4);
+      color: #fff;
+      position: relative;
+    }
+    .btn-online:after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url('//ezenac.co.kr/m/images/curriculum/employed/btn_arrow_white.png');
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -8px;
+    }
+
+    .btn-employed:hover,
+    .btn-online:hover {
+      opacity: 0.8;
+      filter: alpha(opacity=80);
+    }
   }
 }
+
+
 // @@ MEBNU04
 .pp-wrap{
   .view--util{
@@ -1567,7 +2051,7 @@ COMPONENT
   }
 }
 .terms--txtContent{
-  margin: 50px 13px 5px 13px;
+  margin: 20px 13px 5px 13px;
   padding: 10px;
   border: 1px solid #ccc;
   height: 100px;
@@ -1989,13 +2473,7 @@ COMPONENT
     margin-top: 30px;
   }
   .agree{
-    display: block;
-    text-align: left;
-    span{
-      height: 30px;
-      color: #666;
-      font-size: 13px;
-    }
+
   }
   .tit--counsel-title{
     margin: 20px 0 10px 0;
@@ -2028,6 +2506,9 @@ COMPONENT
   }
   .fa{
     vertical-align: middle;
+  }
+  .agree{
+    margin: 0;
   }
 }
 
@@ -3570,6 +4051,9 @@ COMPONENT
     background: url('http://ezenac.co.kr/m/images/sub/ci_section_bg.png') repeat;
     min-width: 320px;
     text-align: center;
+    &.star{
+      min-width: auto;
+    }
   }
   .item{
     margin: 20px 0;
@@ -3724,4 +4208,393 @@ COMPONENT
 
 
 
+}
+// 개인정보취급방침
+.termsConBox{
+  margin: 0 13px 30px 13px;
+  .parag{
+    margin: 5px 0 15px 0;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #666;
+  }
+  .s-tit{
+    display: inline-block;
+    position: relative;
+    padding-top: 10px;
+    margin: 30px 0 5px;
+    font-size: 15px;
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 2px;
+      background-color: #000;
+    }
+    & + .parag{
+
+    }
+  }
+  .termsConIndex{
+    border: 1px solid #ccc;
+    background-color: #efefef;
+    padding: 0 10px 20px 10px;
+    font-size: 12px;
+    li{
+      margin: 10px 0 10px 30px;
+
+      a{color: #666;}
+    }
+    .ss-tit{
+      color: #000;
+      margin: 25px 0 10px 0;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+  }
+  //
+
+  .sd-tit{
+    margin: 20px 0 10px 0;
+    font-size: 13px;
+    padding-left: 15px;
+    position: relative;
+    &::before{
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 4px;
+      height: 4px;
+      background-color: $c3;
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+  }
+  //
+  .depth2{
+    li{
+      font-size: 12px;
+      margin: 15px 10px;
+      line-height: 1.5;
+
+    }
+  }
+}
+// 직장인신청
+.salaryman{
+  .img--wrap{
+    margin: 30px 0;
+  }
+  .help{
+    margin: 3px 0;
+  }
+  input[type="text"] {
+    width: 95%;
+  }
+  .item-radio{
+    margin: 5px 0;
+  }
+  .down{
+    vertical-align: middle;
+    position: relative;
+    top: 2px;
+    img{
+      width: 72px;
+    }
+  }
+  .current-select{
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .point-color{
+    color: $c3
+  }
+  .division{
+    border-top:dashed 1px #ccc;
+    padding-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    &:first-child{
+      margin-top: 0;
+      border: 0;
+    }
+    &::before{
+      //content: '';
+      display: inline-block;
+      width: 2px;
+      height: 12px;
+      background-color: #000;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
+  .payment .radio-custom:last-child{
+    margin-bottom: 15px;
+  }
+  .noti{
+    background-color: #efefef;
+    color: #000;
+    padding: 10px;
+    line-height: 1.5;
+    font-size: 11px;
+  }
+
+  .termsConBox{
+    margin: 0;
+    font-size: 11px;
+    .parag{
+      font-size: 11px;
+    }
+    .termsConIndex{
+      height: 80px;
+      overflow: scroll;
+      margin-top: 10px;
+      li{
+        font-size: 11px;
+      }
+      .ss-tit{
+        font-size: 12px;
+      }
+    }
+  }
+  .agree{
+    margin: 10px 0 0 0;
+  }
+  .notice{
+    margin: 30px 0;
+    li{
+      font-size: 12px;
+      margin: 10px 0;
+      span{
+        color: $c3;
+      }
+    }
+  }
+  .btn--wrap{
+    margin-bottom: 30px;
+  }
+}
+.campus-lecture-list{
+  border-top: 1px dashed #000;
+  padding-top: 20px;
+  h3 {
+    font-size: 14px;
+    color: #fff;
+    background-color: #3c98ba;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+  }
+
+  .course-list {
+    position: relative;
+    padding: 15px 0;
+    overflow: hidden;
+  }
+
+
+
+  label{
+    display: block;
+    position: relative;
+    margin: 10px 0;
+  }
+  [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after{
+    margin-top: 2px;
+    transition:  all 0.1s 0s ease;
+    transform: scale(0.6);
+  }
+  [type="checkbox"].filled-in:checked+span:not(.lever):after{
+    margin-top: 3px;
+    transform: scale(0.8);
+  }
+  [type="checkbox"].filled-in:checked+span:not(.lever):before{
+    top: 4px;
+    width: 8px;
+    height: 11px;
+  }
+  .name{
+    @include oell(30);
+    display: block !important;
+    color: #000;
+    margin-right: 100px;
+  }
+  input + span{
+    font-size: 12px;
+    padding-left: 25px;
+    color: #666;
+  }
+  .cate{
+    @include oell(30);
+    display: block;
+    line-height: 2.2;
+    color: #666;
+    font-size: 12px;
+  }
+  .price{
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    top: 5px;
+    .month{
+      color: #666;
+      font-size: 12px;
+      vertical-align: top;
+      &::after{
+        content: '-';
+      }
+    }
+    color: $c3;
+  }
+
+}
+
+
+#lecture-result li {
+  display: inline-block;
+  position: relative;
+  color: #139aba;
+  padding: 10px 20px 10px 10px;
+  margin: 0 5px 15px 0;
+  border-radius: 20px;
+  font-size: 12px;
+  border: 1px solid #999;
+}
+#lecture-result .delete-btn {
+  display: inline-block;
+  width: 15px;
+  height: 16px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  margin-top: -7px;
+  padding: 0 5px;
+  color: #fff;
+  font-size: 0;
+  background: url('/m/images/btn_application_delete.jpg') no-repeat center center;
+  background-size: 60% auto;
+}
+
+
+// 빠른상담 - 프레임
+.quick-qna{
+  position: fixed;
+  padding-top: 30px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 310px;
+  background-color: #e1e1e1;
+  transition: all 200ms 0s ease;
+  z-index: 100;
+  transform: translate3d(0,350px,0);
+  &.open{
+    transform: translate3d(0,0,0) !important;
+  }
+  .quick-btn{
+    border: 0;
+    z-index: 50;
+    background: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: -23px;
+    font-size: 0;
+    display: block;
+    .img{
+      @include ir2($quick-btn);
+    }
+  }
+}
+.float__menu--wrap.down + .quick-qna{
+  transform: translate3d(0,300px,0);
+}
+
+.quick-btn-open{
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  #wrapping{
+
+  }
+  #wrap{
+    overflow: hidden;
+    height: 100%;
+  }
+  .quick-qna{
+    transform: translate3d(0,0,0) !important;
+  }
+}
+// 빠른상담 컨텐츠
+#frm-quick-qna{
+  input[type="text"],
+  input[type="tel"],
+  textarea,
+  select{
+    background-color: #fff;
+  }
+  .agree{
+    margin: 10px 0;
+    position: relative;
+    .link{
+      width: 70px;
+      font-size: 11px;
+      position: absolute;
+      right: 0;
+      top: -2px;
+      background-color: #666 !important;
+      padding: 0;
+      text-align: center;
+      line-height: 25px;
+      height: 25px;
+      margin: 0;
+    }
+  }
+  .select--wrap .fa{
+    z-index: 5;
+    color: #000;
+  }
+  .submit{
+    margin: 5px 0 20px;
+    background-color: #139aba !important;
+  }
+  tr:last-child{
+    .td-wrap{
+      padding-left: 74px;
+    }
+    .select--wrap{
+      width: 70px;
+    }
+  }
+}
+
+
+// 교습과목 교습비
+#fee-content{
+  .img--wrap{
+    &::before{
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: 7px;
+      background-color: #c3c3c3;
+      z-index: 1;
+    }
+    img{
+      position: relative;
+      z-index: 3;
+    }
+    position: relative;
+  }
+  .tutition-View{
+    margin: 0 13px 30px 13px;
+  }
 }

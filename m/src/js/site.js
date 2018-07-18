@@ -14,7 +14,13 @@ $(document).ready(function () {
     $('.menu-button').click(function(e){
         e.preventDefault();
 
-        $('body').toggleClass('cross');
+        if($('body').hasClass('quick-btn-open')) {
+            $('.quick-btn').trigger('click');
+        }
+
+
+        $('body').toggleClass('cross').removeClass('quick-btn-open');
+        $('.float__menu--wrap').removeClass('down');
 
         var isClass = $('body').hasClass('cross'),
             isMain = $('.main').size();
@@ -28,10 +34,40 @@ $(document).ready(function () {
                 pf.autoplay.start();
             }
         }
-    });
 
+        if(isClass) {
+            eventBlock('body', false);
+        } else {
+            eventBlock('body', true);
+        }
+    });
+    $('.side-menu__banner .close').click(function(){
+        $('.menu-button').trigger('click');
+        return false;
+    });
+// quick-btn
+    $('.quick-btn').click(function(e){
+        e.preventDefault();
+        var ele = document.getElementById('wrap');
+
+        if($('body').hasClass('quick-btn-open')) {
+            $('body').removeClass('quick-btn-open');
+            ele.removeEventListener('touchmove', t);
+        } else {
+            $('body').addClass('quick-btn-open');
+            ele.addEventListener('touchmove', t, {
+                passive: false
+            });
+        }
+    });
+    function t(e){
+        e.preventDefault();
+        e.stopPropagation();
+    }
 // floating btn
     $('#menu-open').change(function(e) {
+        e.preventDefault();
+
         $('.float__menu--wrap').removeClass('down up');
         $('.float__menu--wrap').toggleClass('checked');
     });
@@ -54,14 +90,14 @@ $(document).ready(function () {
     });
 
 (function() {
-    $('.tab--s1 .item').click(function(e){
+    $('.tab-trigger .item').click(function(e){
         e.preventDefault();
         var getID = $(this).attr('data-rel');
 
-        $('.tab--s1 .item').removeClass('on');
+        $('.tab-trigger .item').removeClass('on');
         $(this).addClass('on');
 
-        $('.cnt').hide();
+        $('.tab-cnt').hide();
         $('#'+ getID).show();
     });
 
@@ -72,13 +108,17 @@ $(document).ready(function () {
         lastScrollTop = 0;
 
     $(window).scroll(function(e){
-        var p = $(window).scrollTop();
+        var isClass = $('body').hasClass('cross'),
+            p = $(window).scrollTop();
+
+        if(isClass) return true;
 
         $('.float__menu--wrap').removeClass('down up');
         if (p > lastScrollTop){
             scVal = 0;
             $('#re-header, .float__menu--wrap').addClass('up');
         } else {
+            $('#re-header, .float__menu--wrap').addClass('down');
             // 이동거리 값이 30이상일때 헤더 보임
             scVal++;
             if(scVal > 30) {
@@ -115,3 +155,39 @@ $(window).load(function(){
     // GNB ACTIVE
     $('#re-gnb').addClass('active'+ GNB);
 });
+
+
+function eventBlock(ele, flag){
+    var target = document.querySelector(ele);
+
+    if(flag) {
+        target.removeEventListener('touchmove', test);
+    } else {
+        target.addEventListener('touchmove', test, {
+            passive: false
+        });
+
+    }
+}
+
+function test(e){
+    var t = $(e.target),
+        getName = t.prop("tagName").toLowerCase();
+
+    t.parents().map(function(a,b){
+        //console.log(a,b);
+    });
+
+    // 터치영역이  사이드메뉴 인지 구분
+    if(t.closest('#side-menu').length > 0) {
+        if(getName === 'select' || getName === 'input' || getName === 'a' || getName === 'label' || getName === 'button') {
+
+        } else {
+            e.preventDefault();
+            e.stopPropagation()
+        }
+    } else {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+}

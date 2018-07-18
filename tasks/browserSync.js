@@ -14,7 +14,7 @@ module.exports = function() {
                 }
             ]
         },
-        port: 85,
+        port: 80,
         ui: {
             weinre: {
                 port: 9090

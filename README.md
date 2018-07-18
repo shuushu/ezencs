@@ -1,6 +1,10 @@
 # ezencs
 ezen renewal 작업 가이드
 
+## 작업방식
+ - 산출물 제외 한 파일은 모두 FTP상에서 수정을 바로하여 파일을 보관하지 않음
+ - 그외 파일은 산출물 폴더 참조.
+
 ## 개발툴 
 - nodejs환경 gulp자동화 툴
 - 사용플러그인 / sprite, sass, minify, html-include, browser-sync
@@ -66,6 +70,16 @@ C. 환경폴더
 
 
 ## format
+> PC Layout
+```
+<div id="wrap" class="noto">
+	<!--#include virtual="/common/include/_header.asp"-->
+	<div id="content">
+		CONTENTS
+	</div>
+	<!--#include virtual="/common/include/_footer.asp"-->
+</div>
+```
 > mobile: src/html 
 ```
 <div id="wrapping">

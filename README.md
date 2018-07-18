@@ -14,11 +14,11 @@ A. 모바일 폴더
    - inc
    - js: 프론트 js
    - sass
-     - components: materializecss 컴포넌트
+     - components: materializecss 컴포넌트 ◎
      - styles
-       - _sprite.scss(스프라이트)
+       - _sprite.scss(스프라이트) ◇
        - _var.scss(지정변수 및 스타일)
-       - materialize.scss(컴포넌트)
+       - materialize.scss(컴포넌트) ◎
      - common.scss: 모바일 공통 스타일
      - main.scss: 
 
@@ -27,14 +27,17 @@ B. 피씨 폴더
   - css/site/overwrite.css
   - js/site/ui.js 프론트 공통 js
   - sass/styles/
-    - _commonSprite.scss/ 공통 스프라이트
-    - _curriculumSprite.scss/ 커리큘럼 스프라이트
-    - _font.scss/ 폰트
+    - _commonSprite.scss/ 공통 스프라이트 ◇
+    - _curriculumSprite.scss/ 커리큘럼 스프라이트 ◇
+    - _font.scss/ 폰트 ◎
     - _homeSprite.scss/ 메인 스프라이트
     - _regacy.scss/ 리뉴얼전 스타일
-    - _scroll.min.scss/ 스크롤 플러그인
-    - _sprite.scss/ 스프라이트 변수
-    - _var.scss/ 사용자 지정 변수
+    - _scroll.min.scss/ 스크롤 플러그인 ◎
+    - _sprite.scss/ 스프라이트 변수 ◇
+    - _var.scss/ 사용자 지정 변수 
+        
+    > ◎ 부분은 작업 할 일이 없을 듯 싶습니다
+    > ◇ 테스크에서 자동으로 만들어주는 파일
 
 - ftp/images/sprites/
   - common: 스프라이트 공통 이미지

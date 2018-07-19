@@ -4158,8 +4158,8 @@ a.cbtn > img {vertical-align:middle;}
 }
 
 .img_sc_box {font-size:0; width:330px; height:169px; overflow:hidden;}
+.dniMList >ul > li a > .img_sc_box img { transition: transform .5s;}
 .dniMList >ul > li a:hover > .img_sc_box img {
-
   transform:scale(1.1); /* 마우스 오버시 이미지 크기를 1.1 배만큼 확대시킨다. */
   -o-transform:scale(1.1);
   -moz-transform:scale(1.1);

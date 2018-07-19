@@ -368,6 +368,7 @@ nav{
   }
 }
 .rolling-date{
+  width:103px;
   color: #fff;
   height: 22px;
   position: absolute;
@@ -1612,11 +1613,12 @@ COMPONENT
     padding: 7px 28px 7px 14px;
     letter-spacing: -1px;
     &::after {
+      content:'';
       position: absolute;
       @include arrow('right', 6, #139aba);
       font-size: 11px;
       right: 12px;
-      top: 9px;
+      top: 10px;
     }
   }
   .blet {
@@ -1699,7 +1701,6 @@ COMPONENT
     }
   }
   .center-inner {
-    padding: 0 30px;
     max-width: 640px;
     margin: 30px auto;
     text-align: center;

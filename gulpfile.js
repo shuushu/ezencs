@@ -70,6 +70,7 @@ gulp.task('choiceSprites', function () {
         var task = task.theme;
 
         gulp.task('sass2', function() {
+            console.log('run sass2');
             gulp.src('./ftp/common/sass/*.scss')
                 .pipe(plumber({ errorHandler: function(e) {
                     console.error(e.message);

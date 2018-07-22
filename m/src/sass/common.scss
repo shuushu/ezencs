@@ -3442,8 +3442,7 @@ COMPONENT
 
 // 연혁
 .history-context{
-  
-  
+  min-height: 300px;
   .swiper-slide{
     box-sizing: border-box;
     padding: 0 13px;
@@ -3503,6 +3502,7 @@ COMPONENT
     img{
       display: block;
       width: 100%;
+      max-width: 300px;
     }
   }
   .swiper-pagination{

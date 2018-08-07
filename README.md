@@ -85,15 +85,15 @@ C. 환경폴더
 > mobile: src/html 
 ```
 <div id="wrapping">
-    @@include("./inc/aside.html")
+    <!--#include virtual="/m/common/include/sidemenu.asp"-->
     <div id="wrap">
-        @@include("./inc/header.html")
+        <!--#include virtual="/m/common/include/header.asp"-->
         <div id="re-container">
         내용
         </div>
-        @@include("./inc/footer.html")
+       <!--#include virtual="/m/common/include/footer.asp"-->
     </div>
-    @@include("./inc/float.html")
+    <!--#include virtual="/m/common/include/float.asp"-->
 </div>
 ```
 

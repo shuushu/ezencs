@@ -407,6 +407,9 @@ caption{
         @include ir($menu-open-bullet);
       }
     }
+    .on + ul{
+      background-color: #27292d;
+    }
   }
   &.item > a{
     &:before{

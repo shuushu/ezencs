@@ -87,7 +87,19 @@
   .swiper-button-next{
     @include ir2($m-teacher-right-arrow)
   }
-
+  .teacherText {
+    position: absolute;
+    bottom: 70px;
+    right: -15px;
+    font-size: 14px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    z-index: 100;
+    font-size: 14px;
+  }
   .teacher__slide--more{
     display: block;
     position: absolute;

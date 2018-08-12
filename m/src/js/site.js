@@ -46,7 +46,7 @@ $(document).ready(function () {
         return false;
     });
 // quick-btn
-    $('.quick-btn').click(function(e){
+    $('.quick-btn').on('click touch', function(e){
         e.preventDefault();
         var ele = document.getElementById('wrap');
 

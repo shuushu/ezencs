@@ -546,7 +546,7 @@ nav{
   @include ir2($sns-review-title);
 }
 .tit--counsel-title{
-  @include ir2($counsel-title)
+  @include ir2($tit-onlinecoun)
 }
 .tit--company_edu-title{
   @include ir2($company-edu-title)
@@ -1031,6 +1031,7 @@ COMPONENT
   }
   .menulist{
     margin: 20px 0;
+    min-height: 351px;
     overflow: hidden;
 
     > ul > li {
@@ -1116,6 +1117,25 @@ COMPONENT
         color: #fff;
 
         background: -webkit-linear-gradient(top, rgb(94, 165, 183) 30%, rgb(49, 159, 182) 100%);
+
+        &.goBtn{
+          margin: 1px 0;
+          position: relative;
+          > a{
+            display: block;
+            position: relative;
+            z-index: 3;
+            color: #fff;
+          }
+          &::after{
+            content: "\f101";
+            font: normal normal normal 24px/1 FontAwesome;
+            position: absolute;
+            right: 10px;
+            top: 7px;
+          }
+        }
+        // S-tit END
       }
     }
   }
@@ -3412,15 +3432,33 @@ COMPONENT
 
   }
 
-  .ico1{
-    @include ir2($review-icon1-1)
-  }
-  .ico2{
-    @include ir2($review-icon1-2)
-  }
-  .ico3{
-    @include ir2($review-icon1-3)
-  }
+  .ico1_1{@include ir2($review-icon1-1)}
+  .ico1_2{@include ir2($review-icon1-2)}
+  .ico1_3{@include ir2($review-icon1-3)}
+
+  .ico2_1{@include ir2($review-icon2-1)}
+  .ico2_2{@include ir2($review-icon2-2)}
+  .ico2_3{@include ir2($review-icon2-3)}
+
+  .ico3_1{@include ir2($review-icon3-1)}
+  .ico3_2{@include ir2($review-icon3-2)}
+  .ico3_3{@include ir2($review-icon3-3)}
+
+  .ico4_1{@include ir2($review-icon4-1)}
+  .ico4_2{@include ir2($review-icon4-2)}
+  .ico4_3{@include ir2($review-icon4-3)}
+
+  .ico5_1{@include ir2($review-icon5-1)}
+  .ico5_2{@include ir2($review-icon5-2)}
+  .ico5_3{@include ir2($review-icon5-3)}
+
+  .ico6_1{@include ir2($review-icon6-1)}
+  .ico6_2{@include ir2($review-icon6-2)}
+  .ico6_3{@include ir2($review-icon6-3)}
+
+  .ico7_1{@include ir2($review-icon7-1)}
+  .ico7_2{@include ir2($review-icon7-2)}
+  .ico7_3{@include ir2($review-icon7-3)}
 }
 
 // 포토갤러리
@@ -3608,6 +3646,12 @@ COMPONENT
 
 // @@teacher main
 .teacher-main{
+  .count{
+    position: absolute;
+    left: 68%;
+    top: 16%;
+    z-index: 30;
+  }
   .teacher-carousel{
     position: relative;
     img{
@@ -3634,7 +3678,7 @@ COMPONENT
   }
 }
 #teacherInfoContent2 {
-  background: url('http://ezenac.co.kr/m/images/teacher2_bg.png') no-repeat center top;
+  background: url('//ezenac.co.kr/m/images/teacher2_bg.png') no-repeat center top;
   background-size: cover;
   .teacherInfoSContent2 {
     padding: 20px 13px 30px 13px;
@@ -3699,6 +3743,13 @@ COMPONENT
     }
 
   }
+
+  #license{
+      h2{color: #5d5d5d}
+      background: url('//ezenac.co.kr/m/images/teacher3_bg.png') no-repeat center top;
+      background-size: cover;
+  }
+
 }
 
 .summer2018-vacation{
@@ -3709,7 +3760,7 @@ COMPONENT
 
 
   .items{
-    background: url('/m/ezen/event/2018_summer/images/section2_bg.jpg') no-repeat;
+    background: url('//ezenac.co.kr/m/ezen/event/2018_summer/images/section2_bg.jpg') no-repeat;
     background-size: cover;
     padding: 26px;
     li{
@@ -4598,4 +4649,379 @@ COMPONENT
   .tutition-View{
     margin: 0 13px 30px 13px;
   }
+}
+
+
+// web_index
+#webstudio{
+  padding-bottom: 30px;
+  .adv{
+    font-size: 0;
+    text-align: center;
+    img{
+      max-width: 640px;
+      width: 100%;
+    }
+  }
+  .example{
+    margin: 0 13px;
+    box-shadow: 1px 0 15px #ccc;
+    font-size: 0;
+    img{width: 100%;}
+    .page{
+      text-align: center;
+      padding: 10px 0;
+    }
+    .cnt{
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 10px;
+      font-size: 12px;
+    }
+    .btn-next,
+    .btn-prev{
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      width: 26px;
+      height: 26px;
+      text-indent: -999em;
+      &::before{
+        content:'\f104';
+        font-family: 'FontAwesome';
+        display: block;
+        position: absolute;
+        text-indent: 0;
+        left: 50%;
+        font-size: 20px;
+        margin-left: -3px;
+      }
+    }
+    .btn-next::before{
+      content:'\f105';
+    }
+  }
+  .section--design{
+    background: #343434 url('//eduncs.co.kr//m/images/sub/web/section2_bg.png') no-repeat center bottom;
+    padding: 40px 20px 100px 20px;
+    text-align: center;
+    background-size: 100%;
+    .head{
+      padding: 0 10px 20px 10px;
+    }
+    img{
+      max-width: 100%;
+    }
+    h2{
+      font-size: 20px;
+      padding-top: 12px;
+      text-align: center;
+    }
+    p{
+      font-size: 14px;
+      padding: 0 12px;
+      margin-top: 8px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .wrapping{
+      position: relative;
+      margin: 0 10px;
+      padding: 10px;
+      background: #fff;
+      box-sizing: border-box;
+      box-shadow: 0 0 5px #ccc;
+      img{
+        width: 100%;
+        display: block;
+      }
+    }
+    .btn--wrap{
+      .btn{
+        border-radius: 3px;
+        width: 49%;
+        box-sizing: border-box;
+      }
+      a:hover{
+        color: #fff;;
+      }
+      .waves-light2{
+        float: left;
+        background-color: black;
+      }
+      .waves-light{
+        float: right;
+        background-color: gray;
+      }
+    }
+    .swiper-pagination{
+      width: 100%;
+      left: 0;
+      bottom: -30px;
+      .swiper-pagination-bullet{
+        margin: 0 3px;
+        background-color: #ccc;
+        opacity: .6;
+      }
+      .swiper-pagination-bullet-active{
+        background-color: black;
+      }
+    }
+
+  }
+  #webpubb{
+    background: #ebeff0 url('//eduncs.co.kr/m/images/sub/web/section3_bg.png')no-repeat center bottom;
+  }
+  #webpof{
+    padding-bottom: 20px;
+    background: #fff;
+    .swiper-container{
+      border: 1px solid #ccc;
+    }
+    .swiper-pagination{
+      position: relative;
+      bottom: 0;
+      margin: 10px 0;
+    }
+    .swiper-pagination-bullet{
+      background-color: #ccc;
+    }
+    .swiper-pagination-bullet-active{
+      background-color: black;
+    }
+  }
+  #webpof #webofSlide2{
+    border: 0;
+    margin-top: 20px;
+    a{
+      font-size: 0;
+      margin: 0 5px;
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        opacity: .2;
+      }
+      display: block;
+    }
+    .active a::before{
+      border: 3px solid #000;
+      opacity: .8;
+    }
+  }
+  .btn--wrap{
+    position: relative;
+    z-index: 30;
+    overflow: visible;
+  }
+  .webofSlide2-btn-next,
+  .webofSlide2-btn-prev{
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -43px;
+    text-indent: -999em;
+    &::before{
+      content: '\f104';
+      font-family: 'FontAwesome';
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      text-indent: 0;
+      font-size: 20px;
+      margin-left: -3px;
+      z-index: 30;
+    }
+  }
+  .webofSlide2-btn-prev{
+    left: -20px;
+  }
+
+  .webofSlide2-btn-next{
+    right: -23px;
+    &::before{
+      content: '\f105';
+    }
+  }
+
+  #teacherLink{
+    position: relative;
+    img{width: 100%;}
+    .n2,
+    .n1{
+      position: absolute;
+      display: block;
+      left: 55%;
+      width: 20%;
+      top: 16%;
+    }
+    .n2{
+      top: 39.6%;
+    }
+  }
+}
+
+#account_index{
+
+  .account_title {
+    padding-top: 30px;
+    border-bottom: 3px solid #000000;
+    padding-bottom: 18px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 20px;
+    strong{
+      font-size: 20px;
+      display: block;
+      margin-top: 3px;
+      span{
+        color: $c3;
+      }
+    }
+  }
+  .rwd--image img{width: 100%;display: block;}
+  .review-items{
+    padding: 0 20px;
+    background: url('//ezenac.co.kr/m/images/sub/account/account_box8_bg.jpg') repeat;
+    li img{width: 100%;}
+    li{
+      position: relative;
+      border-bottom: 1px solid #ccc;
+    }
+    .btnWrap{
+      overflow: hidden;
+      width: 50%;
+      position: absolute;
+      left: 32%;
+      top: 65%;
+      a{float: left;width:49%;}
+      a:first-child{margin-right: 2%;}
+    }
+  }
+  .time-table{
+    background: url('//ezenac.co.kr/m/images/sub/account/account_box3_bg.jpg') repeat;
+    padding: 0 13px 30px 13px;
+    color: #fff;
+    .account_title{
+      border: 0;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+    table{
+      color: #fff;
+      border: 1px solid #666;
+      th{
+        &:first-child{
+          border-right: 1px solid #666;
+        }
+        background-color: rgba(black, .5);
+        height: 34px;
+        text-align: center;
+      }
+      tr td:first-child{
+        padding-left: 10px;
+        border-right: 1px solid #666;
+      }
+      td{
+        font-size: 12px;
+        border-bottom: 1px solid #666;
+      }
+      .rgb{
+        text-align: center;
+        height: 32px;
+        border-right: 1px solid #666;
+        background-color: rgba(#666, .3);
+      }
+      .pd{
+        font-size: 0;
+        padding: 10px 0;
+        li{
+          display: inline-block;
+          width: 50%;
+          font-size: 12px;
+          color: #efefef;
+          padding: 4px 0;
+          &::before{
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            border-radius: 100%;
+            background-color: #efefef;
+            vertical-align: middle;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .allpass{
+    padding: 50px 0 0 0;
+    background: url('//ezenac.co.kr/m/images/sub/account/account_box4_bg.png') no-repeat;
+    background-size: 100%;
+    .account_title{
+      line-height: 1.3;
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .account_title2{
+    padding-top: 30px;
+    text-align: center;
+    strong{
+      font-size: 20px;}
+
+    .parag{
+      margin-top: 10px;
+      line-height: 1.5;
+      font-size: 13px;
+    }
+    .c3{color: $c3;}
+  }
+  .example{
+    margin-top:30px;
+    margin-bottom: 30px;
+    padding: 10px;
+  }
+  .mv-slide{
+    padding: 0 13px;
+    .movie_text{
+      background-color: #666;
+      color: #fff;
+      padding: 10px;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+    .swiper-pagination{
+      position: relative;
+      bottom: 0;
+      padding: 10px 0 20px 0;
+    }
+  }
+  .teach2{
+    position: relative;
+    a{
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      left: 0;
+      display: block;
+      color: transparent;
+    }
+    .usemap1{top: 0;}
+    .usemap2{top: 50%;}
+  }
+  // END
 }
